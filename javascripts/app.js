@@ -43,91 +43,71 @@ $(document).ready(function() {
     console.log("avatarClicked", avatarClicked);
   })
   
-  /*
-    When any button with card__link class is clicked,
-    move on to the next view.
-   */
-  $(".card__link").click(function(e) {
-    console.log("e",e);
-    var nextCard = $(this).attr("next");
-    var moveAlong = false;
+  $(".select_class").click(function(e) {
+    Player1 = new Gauntlet.Combatants.Player();
+    console.log("Player1", Player1);
+    // check for avatar_selected
+    // CREATE NEW AVATAR based on the id
+    var avatar_ID = $(avatarClicked).get(0).id;
+    switch (avatar_ID) {
+      case "Wizard":
+      // Create a new Wizard
+      Player1.class = new Gauntlet.GuildHall.Wizard();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Warrior":
+      Player1 = new Gauntlet.GuildHall.Warrior();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Valkyrie":
+      Player1 = new Gauntlet.GuildHall.Valkyrie();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Berserker":
+      Player1 = new Gauntlet.GuildHall.Berserker();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Monk":
+      Player1 = new Gauntlet.GuildHall.Monk();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Sorcerer":
+      Player1 = new Gauntlet.GuildHall.Sorcerer();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Conjurer":
+      Player1 = new Gauntlet.GuildHall.Conjurer();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Thief":
+      Player1 = new Gauntlet.GuildHall.Thief();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Ninja":
+      Player1 = new Gauntlet.GuildHall.Ninja();
+      console.log("Player1", Player1);
+      break;
+      
+      case "Assassin":
+      Player1 = new Gauntlet.GuildHall.Assassin();
+      console.log("Player1", Player1);
+      break;
 
-    switch (nextCard) {
-      case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--weapon":
-
-        // check for avatar_selected
-        // CREATE NEW AVATAR based on the id
-        var avatar_ID = $(avatarClicked).get(0).id;
-        switch (avatar_ID) {
-          case "Wizard":
-          // Create a new Wizard
-          Player1 = new Gauntlet.GuildHall.Wizard();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Warrior":
-          Player1 = new Gauntlet.GuildHall.Warrior();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Valkyrie":
-          Player1 = new Gauntlet.GuildHall.Valkyrie();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Berserker":
-          Player1 = new Gauntlet.GuildHall.Berserker();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Monk":
-          Player1 = new Gauntlet.GuildHall.Monk();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Sorcerer":
-          Player1 = new Gauntlet.GuildHall.Sorcerer();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Conjurer":
-          Player1 = new Gauntlet.GuildHall.Conjurer();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Thief":
-          Player1 = new Gauntlet.GuildHall.Thief();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Ninja":
-          Player1 = new Gauntlet.GuildHall.Ninja();
-          console.log("Player1", Player1);
-          break;
-          
-          case "Assassin":
-          Player1 = new Gauntlet.GuildHall.Assassin();
-          console.log("Player1", Player1);
-          break;
-
-          // case "surprise_me":          
-          // Player1 = new Gauntlet.GuildHall.surprise_me();
-          // console.log("Player1", Player1);
-          // break;
-        }
-
-        moveAlong = ($("#player-name").val() !== "");
-        break;
+      // case "surprise_me":          
+      // Player1 = new Gauntlet.GuildHall.surprise_me();
+      // console.log("Player1", Player1);
+      // break;
     }
+  })
 
-    // Change the view
-    if (moveAlong) {
-      $(".card").hide();
-      $("." + nextCard).show();
-    }
 
     // Choose your weapon
     $("#choose_avatar").click(function(e){
@@ -144,9 +124,6 @@ $(document).ready(function() {
     $(avatarClicked).addClass("avatar_selected")
     console.log("avatarClicked", avatarClicked);
     })
-
-
-  });
 
   /*
     When the back button clicked, move back a view
