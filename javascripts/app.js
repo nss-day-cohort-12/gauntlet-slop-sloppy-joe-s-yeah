@@ -4,12 +4,12 @@
 var warrior = new Gauntlet.Combatants.Human();
 warrior.setWeapon(new WarAxe());
 warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+console.log(warrior.PlayertoString());
 
 var orc = new Gauntlet.Combatants.Orc();
 orc.generateClass();
 orc.setWeapon(new BroadSword());
-console.log(orc.toString());
+console.log(orc.PlayertoString());
 
 /*
   Test code to generate a spell
@@ -123,10 +123,29 @@ $(document).ready(function() {
         break;
     }
 
+    // Change the view
     if (moveAlong) {
       $(".card").hide();
       $("." + nextCard).show();
     }
+
+    // Choose your weapon
+    $("#choose_avatar").click(function(e){
+    if (e.target.className.indexOf("ava_HTML") >= 0) {
+      avatarClicked = e.target.parentNode.parentNode;
+    } else {
+      avatarClicked = e.target.parentNode;
+    }
+    var avatar_button_Array = $(".avatar_button");
+    for (var i = 0; i < avatar_button_Array.length; i++) {
+      var currentEl = avatar_button_Array[i]
+      $(currentEl).removeClass(".avatar_button");
+    };
+    $(avatarClicked).addClass("avatar_selected")
+    console.log("avatarClicked", avatarClicked);
+    })
+
+
   });
 
   /*
