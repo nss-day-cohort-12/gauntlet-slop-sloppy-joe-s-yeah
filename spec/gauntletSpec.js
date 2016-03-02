@@ -131,24 +131,48 @@ describe("The specification for Gauntlet Group Project", function() {
 
 
 // Weapon Constructor
-	it("There should e a Weapon constructor", function() {
+	it("There should be a Weapon constructor", function() {
     expect(Weapon).toBeDefined();
   });
 
 // Dagger Constructor
-	it("There should e a Dagger constructor", function() {
+	it("There should be a Dagger constructor", function() {
     expect(Dagger).toBeDefined();
   });
 
 // BroadSword Constructor
-	it("There should e a BroadSword constructor", function() {
+	it("There should be a BroadSword constructor", function() {
     expect(BroadSword).toBeDefined();
   });
 
 // WarAxe Constructor
-	it("There should e a WarAxe constructor", function() {
+	it("There should be a WarAxe constructor", function() {
     expect(WarAxe).toBeDefined();
   });
+
+// Attack function
+  it("There should be an attack function", function() {
+    expect(attack).toBeDefined();
+  });
+
+// Check the attack function
+  it("Attack button should change the value of Player1.health", function() {
+    Player1 = new Gauntlet.Combatants.Human();
+    Player1.weapon = new Dagger();
+    Player1.intelligence = 0;
+    Player1.strength = 0;
+    Player1.health = 120;
+    Enemy1 = new Gauntlet.Combatants.Orc();
+    Enemy1.intelligence = 0;
+    Enemy1.strength = 0;
+    Enemy1.health = 120;
+    Enemy1.weapon = new Dagger();
+    attack();
+    expect(Enemy1.health).toBe(116);
+  })
+
+
+
 
 });
 

@@ -1,4 +1,4 @@
-$("#attack").click(function(){
+function attack () {
 	//Access enemy's health
 	var enemyHealth = Enemy1.health;
 	//Access player's attack
@@ -38,6 +38,12 @@ $("#attack").click(function(){
 
 	$("#enemy1_health_bar").html(Enemy1.health);
 	$("#player1_health_bar").html(Player1.health);
+	if (enemyHealth <= 0) {
+		alert("The Monster Has Been Destroyed!");
+		$('#attack').prop('disabled', true);
+		$('#attack').html("GAME OVER")
+		return;
+	};
 
 	if (playerHealth <= 0) {
 		alert("Player1 Has Been Vanquished!");
@@ -45,12 +51,10 @@ $("#attack").click(function(){
 		$('#attack').html("GAME OVER")
 	};
 
-	if (enemyHealth <= 0) {
-		alert("The Monster Has Been Destroyed!");
-		$('#attack').prop('disabled', true);
-		$('#attack').html("GAME OVER")
-	};
+}
 
+$("#attack").click(function(){
+	attack();
 });
 
 
