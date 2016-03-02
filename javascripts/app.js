@@ -148,15 +148,15 @@ $(document).ready(function() {
     // Change view to show the battle field
     console.log("Player1 fully equipped", Player1);
 
-    // Create a moster rawr!
-
+    // Create a monster rawr!
     Enemy1 = new Gauntlet.Combatants.Orc();
     Enemy1.generateClass();
-    console.log("Enemy1", Enemy1);
-    
-    //Add Player1 and Enemy1 health to the DOM//
+    var EnemyWeapon = new BroadSword();
+    //Give the monster a weapon ------ randomize it if we want
+    Enemy1.setWeapon(EnemyWeapon); 
+    console.log("Enemy1 fully equipped", Enemy1);   
 
-      // Access Player1's health
+    // Access Player1's health
     var player1Health = Player1.health;
     $("#player1_health_bar").html(player1Health);
 
