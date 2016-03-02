@@ -19,7 +19,11 @@ console.log("spell: ", spell.toString());
 
 // Define the actual user as Player1
 var Player1;
+var Enemy1;
 $(document).ready(function() {
+  function yes () {
+    return true;
+  }
   /*
     Show the initial view that accepts player name
   */
@@ -140,12 +144,29 @@ $(document).ready(function() {
       // console.log("Player1", Player1);
       // break;
     }
-    $("#battleground").toggle();
-    $("#weapon-select").toggle();
 
     // Change view to show the battle field
     console.log("Player1 fully equipped", Player1);
+
+    // Create a moster rawr!
+
+    Enemy1 = new Gauntlet.Combatants.Orc();
+    Enemy1.generateClass();
+    console.log("Enemy1", Enemy1);
     
+    //Add Player1 and Enemy1 health to the DOM//
+
+      // Access Player1's health
+    var player1Health = Player1.health;
+    $("#player1_health_bar").html(player1Health);
+
+    var enemy1Health = Enemy1.health;
+    $("#enemy1_health_bar").html(enemy1Health);
+
+
+    $("#battleground").toggle();
+    $("#weapon-select").toggle();
+
   });
 
 
