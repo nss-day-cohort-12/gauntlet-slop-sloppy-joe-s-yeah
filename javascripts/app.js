@@ -175,7 +175,8 @@ $(document).ready(function() {
     var enemy1Health = Enemy1.health;
     $("#enemy1_health_bar").html(enemy1Health);
 
-
+    Player1.name = player1Name;
+    $("player1_display_name").html(Player1.name);
     $("#battleground").toggle();
     $("#weapon-select").toggle();
 
