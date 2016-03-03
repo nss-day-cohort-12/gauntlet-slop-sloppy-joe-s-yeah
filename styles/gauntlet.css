@@ -109,6 +109,10 @@ body {
   width: 100%;
 }
 
+#enemy1_health_bar {
+  width: 100%;
+}
+
 #player1_battle {
   width: 80%;
   display: block;
