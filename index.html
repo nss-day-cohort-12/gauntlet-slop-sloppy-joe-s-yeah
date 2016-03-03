@@ -187,10 +187,17 @@
 
     <section id="battleground" class="card card--battleground">
       <div id="player1_battle">
-        <div id="player1_health_bar"></div>
+        <h1 id="player1_display_name">Player 1</h1>
+
+        <div class="progress">
+          <div class="progress-bar" id="player1_health_bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+          <span class="sr-only">60% Complete</span>
+          </div>
+        </div>
       </div>
 
       <div id="enemy1_battle">
+        <h1 id="enemy1_display_name">Monster</h1>
         <div id="enemy1_health_bar"></div>
       </div> 
 

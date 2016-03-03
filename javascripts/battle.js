@@ -1,4 +1,6 @@
 function attack () {
+	$("#player1_health_bar").width(Player1.health);
+	var player1HealthPercentage = Player1.health
 	//Access enemy's health
 	var enemyHealth = Enemy1.health;
 	//Access player's attack

@@ -20,6 +20,7 @@ console.log("spell: ", spell.toString());
 // Define the actual user as Player1
 var Player1;
 var Enemy1;
+var originalP1_Health;
 $(document).ready(function() {
   function yes () {
     return true;
@@ -101,9 +102,22 @@ $(document).ready(function() {
       // console.log("Player1", Player1);
       // break;
     }
+
     // Change view to show weapons
     $("#class-select").toggle();
     $("#weapon-select").toggle();
+
+    originalP1_Health = Player1.health;
+    // Figure out if the class selected is Magical
+    if (Player1.class.magical === true) {
+      // Change view to show spells
+      $("#class-select").toggle();
+      $("#spell-select").toggle();
+    } else {
+      // Change view to show weapons
+      $("#class-select").toggle();
+      $("#weapon-select").toggle();
+    }
   });
 
 
