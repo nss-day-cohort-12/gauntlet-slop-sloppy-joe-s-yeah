@@ -1,12 +1,12 @@
 "use strict";
 
 function attack () {
-	$("#player1_health_bar").width(Player1.health);
-	$("#enemy1_health_bar").width(Enemy1.health);
 	//Access enemy's health
 	var enemyHealth = Enemy1.health;
 	//Access player's attack
 	var playerDamage = Player1.weapon.damage;
+	// Randomize the multiplier
+	playerDamage = Math.floor((Math.random()*10) * playerDamage);
 	console.log("Player1 initial damage:", playerDamage);
 	//Access and add player extra damage (strength) to attack
 	playerDamage += Player1.strength;
@@ -26,6 +26,8 @@ function attack () {
 	var playerHealth = Player1.health;
 	//Access enemy's attack
 	var enemyDamage = Enemy1.weapon.damage;
+	// Randomize the multiplier
+	enemyDamage = Math.floor((Math.random()*10) * enemyDamage);
 	console.log("Enemy initial damage:", enemyDamage);
 	//Access and add enemy extra damage (strength) to attack
 	enemyDamage += Enemy1.strength;
@@ -40,9 +42,13 @@ function attack () {
 	console.log("new Player1 health:",playerHealth);
 
 
-	$("#enemy1_health_bar").html(Enemy1.health);
-	$("#player1_health_bar").html(Player1.health);
+	$("#player1_health_bar").width(playerHealth)
+	$("#player1_health_bar").html(playerHealth);
+	$("#enemy1_health_bar").width(enemyHealth);
+	$("#enemy1_health_bar").html(enemyHealth);
 	if (enemyHealth <= 0) {
+		Enemy1.health = 0;
+		console.log("Enemy1.health", Enemy1.health);
 		alert("The Monster Has Been Destroyed!");
 		$('#attack').prop('disabled', true);
 		$('#attack').html("GAME OVER")
@@ -50,6 +56,10 @@ function attack () {
 	};
 
 	if (playerHealth <= 0) {
+		Player1.health = 0;
+		$("#player1_health_bar").width(Player1.health);
+		console.log("Player1.health", Player1.health);
+		console.log("Player1 dead", Player1.health);
 		alert("Player1 Has Been Vanquished!");
 		$('#attack').prop('disabled', true);
 		$('#attack').html("GAME OVER")
