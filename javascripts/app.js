@@ -22,6 +22,7 @@ console.log("spell: ", spell.toString());
 // Define the actual user as Player1
 var Player1;
 var Enemy1;
+var player1Name;
 $(document).ready(function() {
   function yes () {
     return true;
@@ -39,6 +40,7 @@ $(document).ready(function() {
     };
     // Add the user value as Player's the name
     Gauntlet.Combatants.Player.playerName = $("#player-name").val();
+    player1Name = $("#player-name").val();
     console.log("Gauntlet.Combatants.Player.playerName",Gauntlet.Combatants.Player.playerName);
     // Change to the next view
     $("#player-setup").toggle();
@@ -231,7 +233,7 @@ $(document).ready(function() {
     var enemy1Health = Enemy1.health;
     $("#enemy1_health_bar").html(enemy1Health);
 
-
+    Player1.name = player1Name;
     $("#battleground").toggle();
     $("#spell-select").toggle();
 
