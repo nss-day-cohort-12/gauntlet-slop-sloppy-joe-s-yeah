@@ -1,3 +1,5 @@
+"use strict";
+
 /*
   Test code to generate a human player and an orc player
 */
@@ -20,6 +22,9 @@ console.log("spell: ", spell.toString());
 // Define the actual user as Player1
 var Player1;
 var Enemy1;
+var originalP1_Health;
+var player1Name;
+
 $(document).ready(function() {
   function yes () {
     return true;
@@ -37,6 +42,7 @@ $(document).ready(function() {
     };
     // Add the user value as Player's the name
     Gauntlet.Combatants.Player.playerName = $("#player-name").val();
+    player1Name = $("#player-name").val();
     console.log("Gauntlet.Combatants.Player.playerName",Gauntlet.Combatants.Player.playerName);
     // Change to the next view
     $("#player-setup").toggle();
@@ -101,6 +107,13 @@ $(document).ready(function() {
       // console.log("Player1", Player1);
       // break;
     }
+
+    // Change view to show weapons
+    $("#class-select").toggle();
+    $("#weapon-select").toggle();
+
+    originalP1_Health = Player1.health;
+
     // Figure out if the class selected is Magical
     if (Player1.class.magical === true) {
       // Change view to show spells
@@ -171,7 +184,8 @@ $(document).ready(function() {
     var enemy1Health = Enemy1.health;
     $("#enemy1_health_bar").html(enemy1Health);
 
-
+    Player1.name = player1Name;
+    $("player1_display_name").html(Player1.name);
     $("#battleground").toggle();
     $("#weapon-select").toggle();
 
@@ -229,7 +243,8 @@ $(document).ready(function() {
     var enemy1Health = Enemy1.health;
     $("#enemy1_health_bar").html(enemy1Health);
 
-
+    Player1.name = player1Name;
+    $("player1_display_name").html(Player1.name);
     $("#battleground").toggle();
     $("#spell-select").toggle();
 
