@@ -108,9 +108,6 @@ $(document).ready(function() {
       // break;
     }
 
-    // Change view to show weapons
-    $("#class-select").toggle();
-    $("#weapon-select").toggle();
 
     originalP1_Health = Player1.health;
 
@@ -185,7 +182,7 @@ $(document).ready(function() {
     $("#enemy1_health_bar").html(enemy1Health);
 
     Player1.name = player1Name;
-    $("player1_display_name").html(Player1.name);
+    $("#player1_display_name").html(Player1.name);
     $("#battleground").toggle();
     $("#weapon-select").toggle();
 
@@ -244,7 +241,7 @@ $(document).ready(function() {
     $("#enemy1_health_bar").html(enemy1Health);
 
     Player1.name = player1Name;
-    $("player1_display_name").html(Player1.name);
+    $("#player1_display_name").html(Player1.name);
     $("#battleground").toggle();
     $("#spell-select").toggle();
 
