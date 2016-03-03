@@ -1,3 +1,5 @@
+"use strict";
+
 function attack () {
 	//Access enemy's health
 	var enemyHealth = Enemy1.health;
