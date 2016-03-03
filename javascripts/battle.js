@@ -1,3 +1,5 @@
+"use strict";
+
 function attack () {
 	$("#player1_health_bar").width(Player1.health);
 	var player1HealthPercentage = Player1.health
